@@ -193,8 +193,13 @@ PlasmoidItem {
 
     // --- Popup ------------------------------------------------------------
     fullRepresentation: PlasmaExtras.Representation {
+        id: popup
         Layout.minimumWidth: Kirigami.Units.gridUnit * 17
+        // The header sits inside the popup too: leaving it out makes the
+        // window too short and the bottom of the content falls under the panel.
         Layout.minimumHeight: content.implicitHeight + Kirigami.Units.largeSpacing * 2
+                              + (popup.header ? popup.header.implicitHeight : 0)
+        Layout.preferredHeight: Layout.minimumHeight
         collapseMarginsHint: true
 
         header: PlasmaExtras.PlasmoidHeading {
