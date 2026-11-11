@@ -63,5 +63,5 @@ fi
 %{_unitdir}/modo-lectura-unblock.service
 
 %changelog
-* Wed Nov 04 2026 Guillermo Claro <guillermoclaro@gmail.com> - 1.1.0-1
+* Wed Nov 04 2026 Guillermo Claro <267127106+guillermoclaro-a11y@users.noreply.github.com> - 1.1.0-1
 - Polkit instead of sudo, configurable sites, translations, accessibility
