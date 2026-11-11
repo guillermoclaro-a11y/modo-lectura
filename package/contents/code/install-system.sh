@@ -11,13 +11,15 @@ DESTDIR=${DESTDIR:-}
 LIBEXECDIR=${LIBEXECDIR:-/usr/local/libexec/modo-lectura}
 POLKITDIR=${POLKITDIR:-/usr/share/polkit-1/actions}   # polkit only reads this one
 UNITDIR=${UNITDIR:-/etc/systemd/system}
-POLICY=org.guillermo.modolectura.policy
+POLICY=io.github.guillermoclaro.modolectura.policy
 UNIT=modo-lectura-unblock.service
 
 live() { [[ -z $DESTDIR ]]; }
 if live && (( EUID != 0 )); then echo "Run as root (sudo or pkexec)." >&2; exit 1; fi
 
 remove_legacy() {
+    # Before 1.1.1 the widget ID was org.guillermo.modolectura.
+    rm -f "$POLKITDIR/org.guillermo.modolectura.policy"
     # Version 1.0 used a sudo rule and a single helper; replace them.
     if grep -qs 'modo-lectura-hosts' /etc/sudoers.d/modo-lectura; then rm -f /etc/sudoers.d/modo-lectura; fi
     if [[ -x /usr/local/libexec/modo-lectura-hosts ]]; then

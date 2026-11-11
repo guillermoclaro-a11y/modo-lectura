@@ -1,6 +1,6 @@
 {
     "KPlugin": {
-        "Id": "org.guillermo.modolectura",
+        "Id": "io.github.guillermoclaro.modolectura",
         "Name": "Reading Mode",
         "Name[es]": "Modo lectura",
         "Description": "Distraction-free reading sessions: blocks YouTube and other sites, mutes notifications and times your session",
@@ -9,7 +9,7 @@
         "Authors": [{ "Name": "Guillermo Claro" }],
         "Category": "Utilities",
         "License": "MIT",
-        "Version": "1.1.0",
+        "Version": "1.1.1",
         "Website": "https://github.com/guillermoclaro-a11y/modo-lectura",
         "BugReportUrl": "https://github.com/guillermoclaro-a11y/modo-lectura/issues"
     },

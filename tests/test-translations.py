@@ -8,7 +8,7 @@ import sys
 root = pathlib.Path(__file__).resolve().parent.parent
 pot = subprocess.run([sys.executable, "-I", str(root / "tools/extract-messages.py")],
                      capture_output=True, text=True, check=True).stdout
-mo = root / "build/locale/es/LC_MESSAGES/plasma_applet_org.guillermo.modolectura.mo"
+mo = root / "build/locale/es/LC_MESSAGES/plasma_applet_io.github.guillermoclaro.modolectura.mo"
 t = gettext.GNUTranslations(mo.open("rb"))
 missing = []
 for block in pot.split("\n\n")[1:]:

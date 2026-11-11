@@ -3,7 +3,7 @@
 %global forge_user guillermoclaro-a11y
 
 Name:           modo-lectura
-Version:        1.1.0
+Version:        1.1.1
 Release:        1%{?dist}
 Summary:        Plasma widget for distraction-free reading sessions
 License:        MIT
@@ -58,10 +58,14 @@ fi
 %doc README.md README.en.md
 %{_bindir}/modo-lectura
 %{_libexecdir}/%{name}/
-%{_datadir}/plasma/plasmoids/org.guillermo.modolectura/
-%{_datadir}/polkit-1/actions/org.guillermo.modolectura.policy
+%{_datadir}/plasma/plasmoids/io.github.guillermoclaro.modolectura/
+%{_datadir}/polkit-1/actions/io.github.guillermoclaro.modolectura.policy
 %{_unitdir}/modo-lectura-unblock.service
 
 %changelog
+* Wed Nov 11 2026 Guillermo Claro <267127106+guillermoclaro-a11y@users.noreply.github.com> - 1.1.1-1
+- Popup: the bottom no longer falls under the panel
+- New widget ID: io.github.guillermoclaro.modolectura
+
 * Wed Nov 04 2026 Guillermo Claro <267127106+guillermoclaro-a11y@users.noreply.github.com> - 1.1.0-1
 - Polkit instead of sudo, configurable sites, translations, accessibility

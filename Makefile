@@ -7,7 +7,7 @@
 #   make plasmoid              build dist/*.plasmoid for the KDE Store
 #   make dist                  build the source tarball (for RPM/COPR)
 
-ID        := org.guillermo.modolectura
+ID        := io.github.guillermoclaro.modolectura
 VERSION   := $(shell python3 -c 'import json;print(json.load(open("package/metadata.json"))["KPlugin"]["Version"])')
 
 PREFIX     ?= /usr/local
@@ -44,7 +44,7 @@ install-system:
 		bash package/contents/code/install-system.sh
 
 install: all install-system
-	rm -rf "$(DESTDIR)$(PLASMOIDDIR)"
+	rm -rf "$(DESTDIR)$(PLASMOIDDIR)" "$(DESTDIR)$(DATADIR)/plasma/plasmoids/org.guillermo.modolectura"
 	mkdir -p "$(DESTDIR)$(PLASMOIDDIR)"
 	cp -r package/. "$(DESTDIR)$(PLASMOIDDIR)/"
 	cp -r build/locale "$(DESTDIR)$(PLASMOIDDIR)/contents/"

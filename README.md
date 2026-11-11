@@ -81,7 +81,7 @@ sudo make uninstall          # instalado desde el código
 sudo dnf remove modo-lectura # instalado desde COPR
 ```
 Si lo instalaste desde la KDE Store:
-`sudo bash ~/.local/share/plasma/plasmoids/org.guillermo.modolectura/contents/code/install-system.sh --uninstall`
+`sudo bash ~/.local/share/plasma/plasmoids/io.github.guillermoclaro.modolectura/contents/code/install-system.sh --uninstall`
 
 ## Traducir
 ```bash

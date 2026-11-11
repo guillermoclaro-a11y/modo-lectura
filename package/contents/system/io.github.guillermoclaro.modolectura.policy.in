@@ -5,7 +5,7 @@
 <policyconfig>
   <vendor>Modo lectura</vendor>
 
-  <action id="org.guillermo.modolectura.block">
+  <action id="io.github.guillermoclaro.modolectura.block">
     <description>Block distracting websites during a reading session</description>
     <description xml:lang="es">Bloquear sitios que distraen durante una sesión de lectura</description>
     <message>Authentication is required to block websites</message>
@@ -19,7 +19,7 @@
   </action>
 
   <!-- Unblocking only removes our own entries, so it never needs a password. -->
-  <action id="org.guillermo.modolectura.unblock">
+  <action id="io.github.guillermoclaro.modolectura.unblock">
     <description>Unblock websites after a reading session</description>
     <description xml:lang="es">Desbloquear sitios al terminar una sesión de lectura</description>
     <message>Authentication is required to unblock websites</message>
