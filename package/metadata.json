@@ -1,0 +1,17 @@
+{
+    "KPlugin": {
+        "Id": "org.guillermo.modolectura",
+        "Name": "Reading Mode",
+        "Name[es]": "Modo lectura",
+        "Description": "Distraction-free reading sessions: blocks YouTube and other sites, mutes notifications and times your session",
+        "Description[es]": "Sesiones de lectura sin distracciones: bloquea YouTube y otros sitios, silencia notificaciones y mide el tiempo",
+        "Icon": "accessories-dictionary",
+        "Authors": [{ "Name": "Guillermo Claro" }],
+        "Category": "Utilities",
+        "License": "MIT",
+        "Version": "1.1.0",
+        "Website": ""
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

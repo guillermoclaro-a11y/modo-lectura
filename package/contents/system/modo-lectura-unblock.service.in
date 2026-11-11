@@ -1,0 +1,9 @@
+[Unit]
+Description=Modo lectura: make sure no website stays blocked after boot
+
+[Service]
+Type=oneshot
+ExecStart=@LIBEXECDIR@/unblock
+
+[Install]
+WantedBy=multi-user.target

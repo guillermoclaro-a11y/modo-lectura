@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+  <vendor>Modo lectura</vendor>
+
+  <action id="org.guillermo.modolectura.block">
+    <description>Block distracting websites during a reading session</description>
+    <description xml:lang="es">Bloquear sitios que distraen durante una sesión de lectura</description>
+    <message>Authentication is required to block websites</message>
+    <message xml:lang="es">Se requiere autenticación para bloquear sitios web</message>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">@LIBEXECDIR@/block</annotate>
+  </action>
+
+  <!-- Unblocking only removes our own entries, so it never needs a password. -->
+  <action id="org.guillermo.modolectura.unblock">
+    <description>Unblock websites after a reading session</description>
+    <description xml:lang="es">Desbloquear sitios al terminar una sesión de lectura</description>
+    <message>Authentication is required to unblock websites</message>
+    <message xml:lang="es">Se requiere autenticación para desbloquear sitios web</message>
+    <defaults>
+      <allow_any>yes</allow_any>
+      <allow_inactive>yes</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">@LIBEXECDIR@/unblock</annotate>
+  </action>
+</policyconfig>

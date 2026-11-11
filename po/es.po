@@ -1,0 +1,203 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: modo-lectura 1.1.0\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: package/contents/config/config.qml:6
+msgid "General"
+msgstr "General"
+
+#: package/contents/ui/configGeneral.qml:48
+msgid "Default duration (minutes):"
+msgstr "Duración predeterminada (minutos):"
+
+#: package/contents/ui/configGeneral.qml:50
+msgid "Default duration in minutes"
+msgstr "Duración predeterminada en minutos"
+
+#: package/contents/ui/configGeneral.qml:55
+msgid "When a session starts:"
+msgstr "Al empezar una sesión:"
+
+#: package/contents/ui/configGeneral.qml:56
+msgid "Lock the screen"
+msgstr "Bloquear la pantalla"
+
+#: package/contents/ui/configGeneral.qml:61
+msgid "When time is up:"
+msgstr "Al terminar el tiempo:"
+
+#: package/contents/ui/configGeneral.qml:62
+msgid "Play an alarm sound"
+msgstr "Hacer sonar una alarma"
+
+#: package/contents/ui/configGeneral.qml:65
+msgid "A notification that stays on screen is always shown."
+msgstr "Siempre se muestra una notificación que queda en pantalla."
+
+#: package/contents/ui/configGeneral.qml:74
+msgid "Screen reader:"
+msgstr "Lector de pantalla:"
+
+#: package/contents/ui/configGeneral.qml:75
+msgid "Announce the remaining time every 5 minutes"
+msgstr "Anunciar el tiempo restante cada 5 minutos"
+
+#: package/contents/ui/configGeneral.qml:82
+msgid "Sites to block:"
+msgstr "Sitios a bloquear:"
+
+#: package/contents/ui/configGeneral.qml:86
+msgid "Sites to block, one per line"
+msgstr "Sitios a bloquear, uno por línea"
+
+#: package/contents/ui/configGeneral.qml:89
+msgid "One site per line, without http:// (for example: instagram.com). The www. version is blocked too."
+msgstr "Un sitio por línea, sin http:// (por ejemplo: instagram.com). También se bloquea la versión con www."
+
+#: package/contents/ui/configGeneral.qml:98
+msgid "These entries are not valid sites and will be ignored: %1"
+msgstr "Estas entradas no son sitios válidos y se van a ignorar: %1"
+
+#: package/contents/ui/configGeneral.qml:106
+msgid "Add:"
+msgstr "Agregar:"
+
+#: package/contents/ui/configGeneral.qml:115
+msgid "Add %1 to the blocked sites"
+msgstr "Agregar %1 a los sitios bloqueados"
+
+#: package/contents/ui/main.qml:38 package/contents/ui/main.qml:160 package/contents/ui/main.qml:205
+msgid "Reading mode"
+msgstr "Modo lectura"
+
+#: package/contents/ui/main.qml:39
+msgid "Reading — %1 left\nSites blocked"
+msgstr "Leyendo — faltan %1\nSitios bloqueados"
+
+#: package/contents/ui/main.qml:40
+msgid "Click to start a reading session"
+msgstr "Clic para empezar una sesión de lectura"
+
+#: package/contents/ui/main.qml:50 package/contents/ui/main.qml:51 package/contents/ui/main.qml:307
+msgid "%1 minute"
+msgid_plural "%1 minutes"
+msgstr[0] "%1 minuto"
+msgstr[1] "%1 minutos"
+
+#: package/contents/ui/main.qml:50 package/contents/ui/main.qml:52
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] "%1 segundo"
+msgstr[1] "%1 segundos"
+
+#: package/contents/ui/main.qml:69 package/contents/ui/main.qml:161 package/contents/ui/main.qml:257
+msgid "%1 left"
+msgstr "faltan %1"
+
+#: package/contents/ui/main.qml:73
+msgid "Reading session finished. Take a break."
+msgstr "Terminó la sesión de lectura. Toma una pausa."
+
+#: package/contents/ui/main.qml:87
+msgid "Unexpected response"
+msgstr "Respuesta inesperada"
+
+#: package/contents/ui/main.qml:102
+msgid "Unknown error"
+msgstr "Error desconocido"
+
+#: package/contents/ui/main.qml:106
+msgid "Setup finished"
+msgstr "Configuración terminada"
+
+#: package/contents/ui/main.qml:108
+msgid "Reading session started: %1"
+msgstr "Sesión de lectura iniciada: %1"
+
+#: package/contents/ui/main.qml:111
+msgid "Reading session ended"
+msgstr "Sesión de lectura terminada"
+
+#: package/contents/ui/main.qml:122
+msgid "There are no sites to block. Add some in the widget settings."
+msgstr "No hay sitios para bloquear. Agrega alguno en la configuración del widget."
+
+#: package/contents/ui/main.qml:137
+msgid "The setup was cancelled or failed."
+msgstr "La configuración se canceló o falló."
+
+#: package/contents/ui/main.qml:162
+msgid "Start a reading session"
+msgstr "Empezar una sesión de lectura"
+
+#: package/contents/ui/main.qml:211
+msgid "Settings: sites, sound and screen lock"
+msgstr "Configuración: sitios, sonido y bloqueo de pantalla"
+
+#: package/contents/ui/main.qml:232
+msgid "To block sites, Reading mode needs a small one-time system setup. Your administrator password will be requested."
+msgstr "Para bloquear sitios, Modo lectura necesita una configuración del sistema, por única vez. Se te va a pedir la contraseña de administrador."
+
+#: package/contents/ui/main.qml:238
+msgid "Set up now"
+msgstr "Configurar ahora"
+
+#: package/contents/ui/main.qml:263
+msgid "Session progress"
+msgstr "Progreso de la sesión"
+
+#: package/contents/ui/main.qml:270
+msgid "Sites blocked · notifications muted"
+msgstr "Sitios bloqueados · notificaciones en silencio"
+
+#: package/contents/ui/main.qml:275
+msgid "End now"
+msgstr "Terminar ahora"
+
+#: package/contents/ui/main.qml:278
+msgid "Unblocks the sites and turns notifications back on"
+msgstr "Desbloquea los sitios y vuelve a activar las notificaciones"
+
+#: package/contents/ui/main.qml:290
+msgid "How long will you read?"
+msgstr "¿Cuánto tiempo vas a leer?"
+
+#: package/contents/ui/main.qml:302
+msgctxt "short form, e.g. 25 min"
+msgid "%1 min"
+msgstr "%1 min"
+
+#: package/contents/ui/main.qml:312
+msgid "Other:"
+msgstr "Otro:"
+
+#: package/contents/ui/main.qml:317
+msgid "Duration in minutes"
+msgstr "Duración en minutos"
+
+#: package/contents/ui/main.qml:319
+msgctxt "minutes"
+msgid "min"
+msgstr "min"
+
+#: package/contents/ui/main.qml:322
+msgid "Lock the screen when starting"
+msgstr "Bloquear la pantalla al empezar"
+
+#: package/contents/ui/main.qml:331
+msgid "Blocks 1 site."
+msgid_plural "Blocks %1 sites."
+msgstr[0] "Bloquea 1 sitio."
+msgstr[1] "Bloquea %1 sitios."
+
+#: package/contents/ui/main.qml:339
+msgid "Start reading"
+msgstr "Empezar a leer"
+
+#: package/contents/ui/main.qml:342
+msgid "Blocks the sites and mutes notifications for %1"
+msgstr "Bloquea los sitios y silencia las notificaciones durante %1"
+

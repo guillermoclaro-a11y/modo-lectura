@@ -1,0 +1,122 @@
+#!/bin/bash
+# Modo lectura — distraction-free reading sessions for Plasma.
+#
+#   modo-lectura start <minutes> [--no-lock] [--no-sound] [--sites "a.com b.com"]
+#   modo-lectura stop          end the current session now
+#   modo-lectura status        machine-readable JSON (used by the widget)
+#
+# Sites default to ~/.config/modo-lectura/sites (one per line) or YouTube.
+set -uo pipefail
+
+SELF=$(readlink -f "$0")
+DIR=$(dirname "$SELF")
+STATE=${XDG_STATE_HOME:-$HOME/.local/state}/modo-lectura
+SITES_FILE=${XDG_CONFIG_HOME:-$HOME/.config}/modo-lectura/sites
+SOUND=/usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
+ICON=accessories-dictionary
+DEFAULT_SITES="youtube.com m.youtube.com music.youtube.com youtu.be youtube-nocookie.com youtubei.googleapis.com"
+DOMAIN_RE='^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$'
+
+HELPERS=""
+for d in /usr/libexec/modo-lectura /usr/local/libexec/modo-lectura; do
+    [[ -x $d/block && -x $d/unblock ]] && { HELPERS=$d; break; }
+done
+
+# --- i18n: Spanish if the locale says so, English otherwise -----------------
+case "${LC_ALL:-${LC_MESSAGES:-${LANG:-}}}" in es*) ES=1 ;; *) ES=0 ;; esac
+t() { if (( ES )); then printf '%s' "$2"; else printf '%s' "$1"; fi; }
+
+json_escape() { local s=${1//\\/\\\\}; s=${s//\"/\\\"}; printf '%s' "${s//$'\n'/ }"; }
+fail() { echo "{\"ok\":false,\"error\":\"$(json_escape "$1")\"}"; exit 1; }
+notify() { notify-send -a "$(t 'Reading mode' 'Modo lectura')" -i "$ICON" "$@" 2>/dev/null || true; }
+
+mkdir -p "$STATE"
+
+read_sites() {
+    if [[ -r $SITES_FILE ]]; then
+        sed -e 's/#.*//' -e 's/[[:space:]]//g' "$SITES_FILE" | grep -v '^$' | tr '\n' ' '
+    else
+        echo "$DEFAULT_SITES"
+    fi
+}
+
+cleanup() {
+    [[ -n $HELPERS ]] && pkexec "$HELPERS/unblock" 2>/dev/null
+    systemctl --user stop modo-lectura-end.timer modo-lectura-dnd.service 2>/dev/null
+    systemctl --user reset-failed modo-lectura-end.timer modo-lectura-end.service modo-lectura-dnd.service 2>/dev/null
+    rm -f "$STATE/end" "$STATE/minutes" "$STATE/sound"
+}
+
+cmd=${1:-status}; shift || true
+case "$cmd" in
+    start)
+        min=${1:-25}; shift || true
+        lock=1; sound=1; sites=""
+        while (( $# )); do
+            case "$1" in
+                --no-lock)  lock=0 ;;
+                --no-sound) sound=0 ;;
+                --sites)    sites=${2:-}; shift ;;
+                *) fail "$(t "Unknown option: $1" "Opción desconocida: $1")" ;;
+            esac
+            shift
+        done
+        [[ "$min" =~ ^[0-9]{1,3}$ ]] && (( 10#$min >= 1 && 10#$min <= 240 )) \
+            || fail "$(t 'Duration must be 1-240 minutes' 'La duración debe ser de 1 a 240 minutos')"
+        min=$(( 10#$min ))
+        [[ -n $HELPERS ]] || fail "$(t 'The system part is not installed' 'Falta instalar la parte de sistema')"
+
+        [[ -n $sites ]] || sites=$(read_sites)
+        read -ra domains <<< "${sites,,}"
+        (( ${#domains[@]} )) || fail "$(t 'No sites to block' 'No hay sitios para bloquear')"
+        for d in "${domains[@]}"; do
+            [[ "$d" =~ $DOMAIN_RE ]] || fail "$(t "Invalid site: $d" "Sitio inválido: $d")"
+        done
+
+        cleanup
+        if ! err=$(pkexec "$HELPERS/block" "$min" "${domains[@]}" 2>&1); then
+            fail "$(t 'Could not block the sites' 'No se pudieron bloquear los sitios'): $err"
+        fi
+        echo $(( $(date +%s) + min * 60 )) > "$STATE/end"
+        echo "$min" > "$STATE/minutes"
+        echo "$sound" > "$STATE/sound"
+        systemd-run --user --quiet --unit=modo-lectura-end --on-active="${min}m" "$SELF" finish
+        systemd-run --user --quiet --unit=modo-lectura-dnd --collect \
+            /usr/bin/python3 -I "$DIR/do-not-disturb.py" $(( min * 60 ))
+        notify "$(t 'Time to read 📖' 'A leer 📖')" \
+               "$(t "$min minutes. Sites blocked, notifications muted." "$min minutos. Sitios bloqueados y notificaciones en silencio.")"
+        echo '{"ok":true}'
+        if (( lock )); then
+            ( sleep 3; loginctl lock-session ) >/dev/null 2>&1 &
+        fi
+        ;;
+    finish)
+        min=$(cat "$STATE/minutes" 2>/dev/null || echo "?")
+        sound=$(cat "$STATE/sound" 2>/dev/null || echo 1)
+        cleanup
+        notify -u critical "$(t 'Time is up ✅' '¡Tiempo! ✅')" \
+               "$(t "You read for $min minutes. Take a break." "Terminaste $min minutos de lectura. Toma una pausa.")"
+        if (( sound )); then
+            for _ in 1 2; do paplay "$SOUND" 2>/dev/null || canberra-gtk-play -i alarm-clock-elapsed 2>/dev/null; done
+        fi
+        ;;
+    stop)
+        cleanup
+        notify "$(t 'Reading session ended' 'Sesión de lectura terminada')" \
+               "$(t 'Sites and notifications are enabled again.' 'Sitios y notificaciones habilitados de nuevo.')"
+        echo '{"ok":true}'
+        ;;
+    status)
+        now=$(date +%s); end=$(cat "$STATE/end" 2>/dev/null || echo 0)
+        installed=$([[ -n $HELPERS ]] && echo true || echo false)
+        if (( end > now )); then
+            echo "{\"ok\":true,\"installed\":$installed,\"active\":true,\"end\":$end,\"remaining\":$(( end - now )),\"minutes\":$(cat "$STATE/minutes" 2>/dev/null || echo 0)}"
+        else
+            echo "{\"ok\":true,\"installed\":$installed,\"active\":false}"
+        fi
+        ;;
+    -h|--help|help)
+        sed -n '2,10p' "$SELF" | sed 's/^# \{0,1\}//' ;;
+    *)
+        echo "$(t 'usage' 'uso'): modo-lectura start <min> [--no-lock] [--no-sound] [--sites \"...\"] | stop | status" >&2; exit 2 ;;
+esac

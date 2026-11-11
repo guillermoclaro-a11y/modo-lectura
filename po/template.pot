@@ -1,0 +1,200 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#: package/contents/config/config.qml:6
+msgid "General"
+msgstr ""
+
+#: package/contents/ui/configGeneral.qml:48
+msgid "Default duration (minutes):"
+msgstr ""
+
+#: package/contents/ui/configGeneral.qml:50
+msgid "Default duration in minutes"
+msgstr ""
+
+#: package/contents/ui/configGeneral.qml:55
+msgid "When a session starts:"
+msgstr ""
+
+#: package/contents/ui/configGeneral.qml:56
+msgid "Lock the screen"
+msgstr ""
+
+#: package/contents/ui/configGeneral.qml:61
+msgid "When time is up:"
+msgstr ""
+
+#: package/contents/ui/configGeneral.qml:62
+msgid "Play an alarm sound"
+msgstr ""
+
+#: package/contents/ui/configGeneral.qml:65
+msgid "A notification that stays on screen is always shown."
+msgstr ""
+
+#: package/contents/ui/configGeneral.qml:74
+msgid "Screen reader:"
+msgstr ""
+
+#: package/contents/ui/configGeneral.qml:75
+msgid "Announce the remaining time every 5 minutes"
+msgstr ""
+
+#: package/contents/ui/configGeneral.qml:82
+msgid "Sites to block:"
+msgstr ""
+
+#: package/contents/ui/configGeneral.qml:86
+msgid "Sites to block, one per line"
+msgstr ""
+
+#: package/contents/ui/configGeneral.qml:89
+msgid "One site per line, without http:// (for example: instagram.com). The www. version is blocked too."
+msgstr ""
+
+#: package/contents/ui/configGeneral.qml:98
+msgid "These entries are not valid sites and will be ignored: %1"
+msgstr ""
+
+#: package/contents/ui/configGeneral.qml:106
+msgid "Add:"
+msgstr ""
+
+#: package/contents/ui/configGeneral.qml:115
+msgid "Add %1 to the blocked sites"
+msgstr ""
+
+#: package/contents/ui/main.qml:38 package/contents/ui/main.qml:160 package/contents/ui/main.qml:205
+msgid "Reading mode"
+msgstr ""
+
+#: package/contents/ui/main.qml:39
+msgid "Reading — %1 left\nSites blocked"
+msgstr ""
+
+#: package/contents/ui/main.qml:40
+msgid "Click to start a reading session"
+msgstr ""
+
+#: package/contents/ui/main.qml:50 package/contents/ui/main.qml:51 package/contents/ui/main.qml:307
+msgid "%1 minute"
+msgid_plural "%1 minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: package/contents/ui/main.qml:50 package/contents/ui/main.qml:52
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: package/contents/ui/main.qml:69 package/contents/ui/main.qml:161 package/contents/ui/main.qml:257
+msgid "%1 left"
+msgstr ""
+
+#: package/contents/ui/main.qml:73
+msgid "Reading session finished. Take a break."
+msgstr ""
+
+#: package/contents/ui/main.qml:87
+msgid "Unexpected response"
+msgstr ""
+
+#: package/contents/ui/main.qml:102
+msgid "Unknown error"
+msgstr ""
+
+#: package/contents/ui/main.qml:106
+msgid "Setup finished"
+msgstr ""
+
+#: package/contents/ui/main.qml:108
+msgid "Reading session started: %1"
+msgstr ""
+
+#: package/contents/ui/main.qml:111
+msgid "Reading session ended"
+msgstr ""
+
+#: package/contents/ui/main.qml:122
+msgid "There are no sites to block. Add some in the widget settings."
+msgstr ""
+
+#: package/contents/ui/main.qml:137
+msgid "The setup was cancelled or failed."
+msgstr ""
+
+#: package/contents/ui/main.qml:162
+msgid "Start a reading session"
+msgstr ""
+
+#: package/contents/ui/main.qml:211
+msgid "Settings: sites, sound and screen lock"
+msgstr ""
+
+#: package/contents/ui/main.qml:232
+msgid "To block sites, Reading mode needs a small one-time system setup. Your administrator password will be requested."
+msgstr ""
+
+#: package/contents/ui/main.qml:238
+msgid "Set up now"
+msgstr ""
+
+#: package/contents/ui/main.qml:263
+msgid "Session progress"
+msgstr ""
+
+#: package/contents/ui/main.qml:270
+msgid "Sites blocked · notifications muted"
+msgstr ""
+
+#: package/contents/ui/main.qml:275
+msgid "End now"
+msgstr ""
+
+#: package/contents/ui/main.qml:278
+msgid "Unblocks the sites and turns notifications back on"
+msgstr ""
+
+#: package/contents/ui/main.qml:290
+msgid "How long will you read?"
+msgstr ""
+
+#: package/contents/ui/main.qml:302
+msgctxt "short form, e.g. 25 min"
+msgid "%1 min"
+msgstr ""
+
+#: package/contents/ui/main.qml:312
+msgid "Other:"
+msgstr ""
+
+#: package/contents/ui/main.qml:317
+msgid "Duration in minutes"
+msgstr ""
+
+#: package/contents/ui/main.qml:319
+msgctxt "minutes"
+msgid "min"
+msgstr ""
+
+#: package/contents/ui/main.qml:322
+msgid "Lock the screen when starting"
+msgstr ""
+
+#: package/contents/ui/main.qml:331
+msgid "Blocks 1 site."
+msgid_plural "Blocks %1 sites."
+msgstr[0] ""
+msgstr[1] ""
+
+#: package/contents/ui/main.qml:339
+msgid "Start reading"
+msgstr ""
+
+#: package/contents/ui/main.qml:342
+msgid "Blocks the sites and mutes notifications for %1"
+msgstr ""
+
