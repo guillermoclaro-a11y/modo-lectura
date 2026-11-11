@@ -22,9 +22,19 @@ y todo vuelve a la normalidad solo.
 
 ## Instalación
 
-### Desde la KDE Store
-1. Clic derecho en el panel → *Agregar widgets…* → *Obtener widgets nuevos…* → busca **Modo lectura**.
-2. Agrégalo al panel, ábrelo y toca **Configurar ahora**. Se te va a pedir la contraseña de
+### En Fedora (COPR)
+```bash
+sudo dnf copr enable guillermoclaro/modo-lectura
+sudo dnf install modo-lectura
+```
+Después: clic derecho en el panel → *Agregar widgets…* → **Modo lectura**. Con este método las
+actualizaciones llegan solas con `dnf` y no hace falta la configuración del sistema.
+
+### Desde el archivo .plasmoid
+1. Descarga el `.plasmoid` de la última versión en
+   [Releases](https://github.com/guillermoclaro-a11y/modo-lectura/releases).
+2. Clic derecho en el panel → *Agregar widgets…* → *Obtener widgets nuevos…* → *Instalar desde archivo local…*.
+3. Agrégalo al panel, ábrelo y toca **Configurar ahora**. Se te va a pedir la contraseña de
    administrador una sola vez.
 
 ### Desde el código fuente (todas las cuentas del equipo)
@@ -80,7 +90,7 @@ alrededor de un minuto, hasta que el navegador cierre la conexión. Las páginas
 sudo make uninstall          # instalado desde el código
 sudo dnf remove modo-lectura # instalado desde COPR
 ```
-Si lo instalaste desde la KDE Store:
+Si lo instalaste desde el archivo .plasmoid:
 `sudo bash ~/.local/share/plasma/plasmoids/io.github.guillermoclaro.modolectura/contents/code/install-system.sh --uninstall`
 
 ## Traducir

@@ -22,9 +22,17 @@ everything goes back to normal on its own.
 
 ## Installation
 
-### KDE Store
-1. Right-click the panel → *Add Widgets…* → *Get New Widgets…* → search for **Reading Mode**.
-2. Add it, open it and press **Set up now**. Your administrator password is requested once.
+### Fedora (COPR)
+```bash
+sudo dnf copr enable guillermoclaro/modo-lectura
+sudo dnf install modo-lectura
+```
+Then right-click the panel → *Add Widgets…* → **Reading Mode**. Updates arrive with `dnf` and no extra system setup is needed.
+
+### From the .plasmoid file
+1. Download the `.plasmoid` from the latest [release](https://github.com/guillermoclaro-a11y/modo-lectura/releases).
+2. Right-click the panel → *Add Widgets…* → *Get New Widgets…* → *Install from local file…*.
+3. Add it, open it and press **Set up now**. Your administrator password is requested once.
 
 ### From source (all accounts on the computer)
 ```bash
