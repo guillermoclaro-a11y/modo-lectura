@@ -29,7 +29,7 @@ y todo vuelve a la normalidad solo.
 
 ### Desde el código fuente (todas las cuentas del equipo)
 ```bash
-git clone https://github.com/GITHUB_USER/modo-lectura.git
+git clone https://github.com/guillermoclaro-a11y/modo-lectura.git
 cd modo-lectura
 make check          # opcional: corre las pruebas
 sudo make install
@@ -38,7 +38,7 @@ Después: clic derecho en el panel → *Agregar widgets…* → **Modo lectura**
 
 ### Fedora (COPR)
 ```bash
-sudo dnf copr enable GITHUB_USER/modo-lectura
+sudo dnf copr enable guillermoclaro-a11y/modo-lectura
 sudo dnf install modo-lectura
 ```
 

@@ -1,6 +1,6 @@
 # RPM spec for Fedora (also works as a COPR package).
-# Replace GITHUB_USER with the account that hosts the repository.
-%global forge_user GITHUB_USER
+# Repository: https://github.com/guillermoclaro-a11y/modo-lectura
+%global forge_user guillermoclaro-a11y
 
 Name:           modo-lectura
 Version:        1.1.0

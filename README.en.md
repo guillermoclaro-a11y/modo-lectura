@@ -28,7 +28,7 @@ everything goes back to normal on its own.
 
 ### From source (all accounts on the computer)
 ```bash
-git clone https://github.com/GITHUB_USER/modo-lectura.git
+git clone https://github.com/guillermoclaro-a11y/modo-lectura.git
 cd modo-lectura
 make check          # optional: run the tests
 sudo make install
@@ -36,7 +36,7 @@ sudo make install
 
 ### Fedora (COPR)
 ```bash
-sudo dnf copr enable GITHUB_USER/modo-lectura
+sudo dnf copr enable guillermoclaro-a11y/modo-lectura
 sudo dnf install modo-lectura
 ```
 
